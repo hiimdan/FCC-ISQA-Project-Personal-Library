@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>FCC ISQA Project | Personal Library</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>ISQA Project - Personal Library</h1>
+    </header>
+    <div id="main">
+      <div id="userstories" class="section">
+        <h2>User Stories:</h2>
+        <ol>
+          <li>Nothing from my website will be cached in my client as a security measure.</li>
+          <li>I will see that the site is powered by 'PHP 4.2.0' even though it isn't as a security measure.</li>
+          <li>I can <b>post</b> a title to /api/books to add a book and returned will be the object with the <code>title</code> and a unique <code>_id</code>.</li>
+          <li>I can <b>get</b> /api/books to retrieve an aray of all books containing <code>title</code>, <code>_id</code>, & <code>commentcount</code>.</li>
+          <li>I can <b>get</b> /api/books/{_id} to retrieve a single object of a book containing <code>title</code>, <code>_id</code>, & an array of <code>comments</code> (empty array if no comments present).</li>
+          <li>I can <b>post</b> a <code>comment</code> to /api/books/{_id} to add a <code>comment</code> to a book and returned will be the books object similar to <b>get</b> /api/books/{_id}.</li>
+          <li>I can <b>delete</b> /api/books/{_id} to delete a book from the collection. Returned will be 'delete successful' if successful.</li>
+          <li>If I try to request a book that doesn't exist I will get a 'no book exists' message.</li>
+          <li>I can send a <b>delete</b> request to /api/books to delete all books in the database. Returned will be 'complete delete successful' if successful.</li>
+          <li>All 6 functional tests required are complete and passing.</li>
+        </ol>
+        <img src="https://cdn.gomix.com/d7932c52-287f-4dae-b175-631fef453000%2FScreen%20Shot%202016-12-16%20at%201.35.56%20AM.png" alt="request method and result reference">
+      </div>
+      <hr>
+      <div id="sampleposting" class="section">
+        <h2>Test API responses:</h2>
+        <form action="/api/books" method="post" class="border">
+          <h4>Test post to /api/books</h4>
+          Book Title:<br>
+          <input type="text" name="title" required><br>
+          <input type="submit" value="Submit">
+        </form>
+        <form action="" method="post" class="border" id="commenttest">
+          <h4>Test post to /api/books/{bookId}</h4>
+          Book Id to comment on:<br>
+          <input type="text" name="id" id="idtest" required><br>
+          Comment:<br>
+          <input type="text" name="comment" required><br>
+          <input type="submit" value="Submit">                                                        
+        </form>
+      </div>
+      <hr>
+      <div id="sampleui" class="section">
+        <h2>Sample Front-End:</h2>
+        <form id="newBookForm" class="border pad">
+          <input type="text" name="title" placeholder="New Book Title" id="bookTitleToAdd"><br>
+          <input type="submit" value="Submit" id="newBook">
+        </form>
+        <div id="display">
+          <ul id="bookList"></ul>
+          <p id="extra"></p>
+        </div>
+        <div id="bookDetail" class="border">
+          <p id="detailTitle">Select a book to see its details and comments</p>
+        </div>
+        <button id="deleteAllBooks">Delete All Books...</button>
+      </div>
+      <hr>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
